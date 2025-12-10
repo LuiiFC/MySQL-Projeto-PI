@@ -1,193 +1,348 @@
-🔍 Análise Completa do seu Projeto PI - Plataforma Manguezal
+🌿 Plataforma de Monitoramento e Denúncia de Manguezais
+📋 ÍNDICE
+Minimundo do Projeto
 
-📖 1. MINIMUNDO DO PROJETO (Descrição Detalhada)
-Contexto:
-Uma plataforma digital para monitoramento, denúncia e proteção de manguezais. O sistema conecta diferentes atores envolvidos na preservação desses ecossistemas costeiros.
+Modelo Conceitual (MER)
 
-Atores/Usuários:
-Pescadores - Usuários que dependem do mangue para sustento
+Modelo Lógico (MR)
 
-Comunidade local - Moradores das áreas próximas aos manguezais
+Script SQL
 
-ONGs Ambientais - Organizações de preservação
+Instalação
 
-Empresas de Pescado - Indústrias relacionadas à pesca
+Como Contribuir
 
-Órgãos Governamentais - Fiscalização ambiental
+🎯 MINIMUNDO DO PROJETO
+Contexto e Problema
+Os manguezais são ecossistemas costeiros vitais que enfrentam graves ameaças como poluição, desmatamento ilegal e pesca predatória. A falta de um sistema centralizado para monitoramento e denúncia dificulta a proteção eficaz dessas áreas.
 
-Funcionalidades Principais:
-A. Monitoramento Ambiental:
-Registro de temperatura da água em diferentes pontos do manguezal
+Solução Proposta
+Uma plataforma digital colaborativa que permite o registro de condições ambientais, denúncia de irregularidades e comunicação entre diferentes atores envolvidos na preservação dos manguezais.
 
-Histórico de medições para análise temporal
+Atores/Usuários do Sistema
+Tipo de Usuário	Função	Permissões
+Pescadores	Trabalham nos manguezais	Registrar temperaturas, fazer denúncias, receber alertas
+Comunidade Local	Moradores das áreas próximas	Denunciar irregularidades, acompanhar status
+ONGs Ambientais	Organizações de preservação	Responder denúncias, analisar dados, enviar mensagens
+Empresas de Pescado	Indústrias relacionadas	Acompanhar condições, comunicar-se com pescadores
+Órgãos Governamentais	Fiscalização ambiental	Dar respostas oficiais, atualizar status de casos
+Funcionalidades Principais
+1. 🎣 Registro de Temperatura
+2. 
+Medições periódicas da temperatura da água
+
+Histórico temporal por manguezal
 
 Alertas de mudanças bruscas
 
-B. Sistema de Denúncias:
-Reportar poluição (resíduos químicos, lixo)
+2. ⚠️ Sistema de Denúncias
+Tipos de denúncia:
 
-Denunciar desmatamento ilegal
+Poluição (resíduos químicos, lixo)
 
-Registrar pesca predatória/ilegal
+Desmatamento ilegal
+
+Pesca predatória/ilegal
 
 Outros problemas ambientais
 
-C. Comunicação e Resposta:
-Mensagens entre usuários
+Anexos: Fotos georreferenciadas
 
-Respostas oficiais às denúncias
+Status: Pendente → Em análise → Resolvido/Arquivado
 
-Atualização de status das denúncias
+3. 💬 Sistema de Comunicação
+Mensagens diretas entre usuários
 
-Notificações sobre ações tomadas
+Discussões específicas sobre denúncias
 
-D. Gestão de Manguezais:
+Notificações de atualizações
+
+4. 🗺️ Gestão de Manguezais
 Cadastro de áreas de mangue
 
-Localização geográfica precisa
+Localização geográfica precisa (coordenadas)
 
-Informações sobre estado, cidade, características
+Informações descritivas e administrativas
 
-Fluxo Típico:
-text
-1. Pescador registra temperatura alta no Mangue X
-2. Comunidade denuncia poluição no mesmo mangue  
-3. ONG recebe notificação e analisa
-4. Órgão ambiental responde com ações tomadas
-5. Todos os envolvidos são notificados
-6. Status da denúncia é atualizado
-🎨 2. MODELO CONCEITUAL (Diagrama MER - Entidade-Relacionamento)
-ENTIDADES PRINCIPAIS:
+
+🎨 MODELO CONCEITUAL (DIAGRAMA MER)
+Entidades Principais
 1. USUARIO
-Atributos: id, nome, email, senha_hash, telefone, tipo_usuario
+Descrição: Pessoa ou organização que utiliza o sistema
 
-Cardinalidade:
+Atributos:
 
+id_usuario (Identificador único)
+
+Nome (Nome completo)
+
+Email (Endereço eletrônico)
+
+Senha_usuario (Credencial de acesso)
+
+CPF_Usuario (Cadastro de Pessoa Física)
+
+Telefone (Contato)
+
+created_at (Data de cadastro)
+
+2. MANGUE
+Descrição: Área de manguezal monitorada
+
+Atributos:
+
+id_mangues (Identificador único)
+
+Nome_Mangues (Denominação da área)
+
+Localização (Coordenadas geográficas)
+
+Estado (Unidade federativa)
+
+Cidade (Município)
+
+Descrição (Características ambientais)
+
+3. TEMPERATURA
+Descrição: Registro de medição térmica
+
+Atributos:
+
+idTemperatura (Identificador único)
+
+Temperatura_Registro (Valor em °C)
+
+data_registro (Data e hora da medição)
+
+Notes (Observações complementares)
+
+4. DENÚNCIA
+Descrição: Reporte de problema ambiental
+
+Atributos:
+
+idDenúncias (Identificador único)
+
+Título (Resumo do problema)
+
+Descrição (Detalhamento)
+
+Tipo_Reclamação (Categoria)
+
+Status (Situação atual)
+
+Latitude/Longitude (Localização exata)
+
+Fotos (Evidências visuais)
+
+5. MENSAGEM
+Descrição: Comunicação entre usuários
+
+Atributos:
+
+idMessages (Identificador único)
+
+Subjetivo (Assunto)
+
+Conteudo (Corpo da mensagem)
+
+6. REGISTRO
+Descrição: Histórico de atividades
+
+Atributos:
+
+idRegistros (Identificador único)
+
+Histórico (Data/hora do registro)
+
+
+Cardinalidades
 Um USUARIO registra várias TEMPERATURAS (1:N)
 
 Um USUARIO faz várias DENÚNCIAS (1:N)
 
 Um USUARIO envia/recebe várias MENSAGENS (1:N)
 
-Um USUARIO escreve várias RESPOSTAS (1:N)
-
-2. MANGUE
-Atributos: id, nome, localizacao, estado, cidade, descricao
-
-Cardinalidade:
-
 Um MANGUE tem várias TEMPERATURAS registradas (1:N)
 
 Um MANGUE recebe várias DENÚNCIAS (1:N)
 
-3. TEMPERATURA
-Atributos: id, valor, data_hora, notas
+Uma DENÚNCIA pode gerar várias MENSAGENS (1:N)
 
-Cardinalidade:
+O sistema mantém REGISTROS de todas as atividades
 
-Uma TEMPERATURA pertence a um USUARIO (N:1)
+💾 MODELO LÓGICO (DIAGRAMA MR)
+Tabelas do Banco de Dados
+1. TABELA usuarios
 
-Uma TEMPERATURA é de um MANGUE específico (N:1)
-
-4. DENÚNCIA
-Atributos: id, titulo, descricao, tipo, status, latitude, longitude, fotos
-
-Cardinalidade:
-
-Uma DENÚNCIA é feita por um USUARIO (N:1)
-
-Uma DENÚNCIA se refere a um MANGUE (N:1)
-
-Uma DENÚNCIA pode gerar várias RESPOSTAS (1:N)
-
-Uma DENÚNCIA pode ser discutida em MENSAGENS (1:N)
-
-5. RESPOSTA_DENUNCIA
-Atributos: id, resposta, acao_tomada, status_update
-
-Cardinalidade:
-
-Uma RESPOSTA pertence a uma DENÚNCIA (N:1)
-
-Uma RESPOSTA é escrita por um USUARIO (N:1)
-
-6. MENSAGEM
-Atributos: id, assunto, conteudo, lida
-
-Cardinalidade:
-
-Uma MENSAGEM tem um REMETENTE (usuário) (N:1)
-
-Uma MENSAGEM tem um DESTINATÁRIO (usuário) (N:1)
-
-Uma MENSAGEM pode referenciar uma DENÚNCIA (N:1) (opcional)
-
-DIAGRAMA CONCEITUAL VISUAL:
-text
-     ┌─────────────┐
-     │   USUARIO   │
-     │  (Entidade) │
-     └──────┬──────┘
-            │
-    ┌───────┼───────┐
-    ▼       ▼       ▼
-┌─────────┐ ┌─────────┐ ┌──────────┐
-│TEMPERA- │ │ DENÚN-  │ │ MENSAGEM │
-│ TURA    │ │  CIA    │ │          │
-│(Entidade)│ │(Entidade)│ │(Entidade)│
-└────┬────┘ └────┬────┘ └────┬─────┘
-     │           │           │
-     │           └─────┬─────┘
-     │                 │
-     ▼                 ▼
-┌─────────┐     ┌──────────────┐
-│ MANGUE  │     │ RESPOSTA_    │
-│(Entidade)│     │ DENUNCIA    │
-└─────────┘     │  (Entidade)  │
-                └──────────────┘
-💾 3. MODELO LÓGICO (Diagrama MR - Modelo Relacional)
-TABELAS E ATRIBUTOS:
-TABELA 1: usuarios
-sql
 CREATE TABLE usuarios (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    senha_hash VARCHAR(255) NOT NULL,
-    telefone VARCHAR(15),
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    Senha_usuario VARCHAR(255) NOT NULL,
+    CPF_Usuario VARCHAR(14) UNIQUE,
+    Telefone VARCHAR(15),
     tipo_usuario ENUM('pescador', 'ong', 'empresa', 'comum', 'governo') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-TABELA 2: mangues
+
+2. TABELA mangues
 sql
 CREATE TABLE mangues (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    localizacao POINT NOT NULL,
-    estado VARCHAR(50),
-    cidade VARCHAR(100),
-    descricao TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id_mangues INT PRIMARY KEY AUTO_INCREMENT,
+    Nome_Mangues VARCHAR(100) NOT NULL,
+    Localizacao POINT NOT NULL,
+    Estado VARCHAR(50),
+    Cidade VARCHAR(100),
+    Descricao TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_estado_cidade (Estado, Cidade),
+    SPATIAL INDEX idx_localizacao (Localizacao)
 );
-TABELA 3: temperaturas
+3. TABELA temperaturas
 sql
 CREATE TABLE temperaturas (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_temperatura INT PRIMARY KEY AUTO_INCREMENT,
     usuario_id INT NOT NULL,
     mangue_id INT NOT NULL,
-    temperatura DECIMAL(4,2) NOT NULL,
+    temperatura_registro DECIMAL(4,2) NOT NULL,
+    data_registro DATETIME NOT NULL,
+    notas TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE CASCADE,
+    INDEX idx_data_registro (data_registro),
+    INDEX idx_mangue_data (mangue_id, data_registro)
+);
+4. TABELA denuncias
+sql
+CREATE TABLE denuncias (
+    id_denuncia INT PRIMARY KEY AUTO_INCREMENT,
+    mangue_id INT NOT NULL,
+    usuario_id INT NOT NULL,
+    titulo VARCHAR(200) NOT NULL,
+    descricao TEXT NOT NULL,
+    tipo_denuncia ENUM('poluicao', 'desmatamento', 'pesca_ilegal', 'outros') NOT NULL,
+    status ENUM('pendente', 'em_analise', 'resolvido', 'arquivado') DEFAULT 'pendente',
+    latitude DECIMAL(10,8),
+    longitude DECIMAL(11,8),
+    fotos JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE CASCADE,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    INDEX idx_status (status),
+    INDEX idx_usuario_denuncia (usuario_id, created_at DESC),
+    INDEX idx_tipo_denuncia (tipo_denuncia)
+);
+5. TABELA mensagens
+sql
+CREATE TABLE mensagens (
+    id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
+    remetente_id INT NOT NULL,
+    destinatario_id INT NOT NULL,
+    assunto VARCHAR(200),
+    conteudo TEXT NOT NULL,
+    denuncia_id INT NULL,
+    lida BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (remetente_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (destinatario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (denuncia_id) REFERENCES denuncias(id_denuncia) ON DELETE SET NULL,
+    INDEX idx_destinatario (destinatario_id, lida, created_at DESC),
+    INDEX idx_remetente (remetente_id, created_at DESC)
+);
+6. TABELA registros
+sql
+CREATE TABLE registros (
+    id_registro INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    mangue_id INT NULL,
+    acao VARCHAR(50) NOT NULL,
+    detalhes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE SET NULL,
+    INDEX idx_usuario_acao (usuario_id, acao),
+    INDEX idx_data_acao (created_at, acao)
+
+);
+
+⚙️ SCRIPT SQL COMPLETO
+
+     -- ============================================
+-- BANCO DE DADOS: PLATAFORMA MANGUEZAIS
+-- ============================================
+
+CREATE DATABASE IF NOT EXISTS plataforma_manguezais;
+USE plataforma_manguezais;
+
+-- Desativar verificações temporariamente
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Tabela USUARIOS
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) UNIQUE NOT NULL,
+    Senha_usuario VARCHAR(255) NOT NULL,
+    CPF_Usuario VARCHAR(14) UNIQUE,
+    Telefone VARCHAR(15),
+    tipo_usuario ENUM('pescador', 'ong', 'empresa', 'comum', 'governo') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    -- Índices
+    INDEX idx_email (Email),
+    INDEX idx_tipo_usuario (tipo_usuario),
+    INDEX idx_cpf (CPF_Usuario)
+);
+
+-- Tabela MANGUES
+DROP TABLE IF EXISTS mangues;
+CREATE TABLE mangues (
+    id_mangues INT PRIMARY KEY AUTO_INCREMENT,
+    Nome_Mangues VARCHAR(100) NOT NULL,
+    Localizacao POINT NOT NULL,
+    Estado VARCHAR(50),
+    Cidade VARCHAR(100),
+    Descricao TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Índices
+    SPATIAL INDEX idx_localizacao (Localizacao),
+    INDEX idx_estado_cidade (Estado, Cidade),
+    INDEX idx_nome (Nome_Mangues)
+);
+
+-- Tabela TEMPERATURAS
+DROP TABLE IF EXISTS temperaturas;
+CREATE TABLE temperaturas (
+    id_temperatura INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    mangue_id INT NOT NULL,
+    temperatura_registro DECIMAL(4,2) NOT NULL,
     data_registro DATETIME NOT NULL,
     notas TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
-    FOREIGN KEY (mangue_id) REFERENCES mangues(id) ON DELETE CASCADE
+    -- Chaves estrangeiras
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE CASCADE,
+    
+    -- Índices
+    INDEX idx_data_registro (data_registro DESC),
+    INDEX idx_mangue_data (mangue_id, data_registro DESC),
+    INDEX idx_usuario_data (usuario_id, data_registro DESC),
+    INDEX idx_temperatura (temperatura_registro)
 );
-TABELA 4: denuncias
-sql
+
+-- Tabela DENÚNCIAS
+DROP TABLE IF EXISTS denuncias;
 CREATE TABLE denuncias (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_denuncia INT PRIMARY KEY AUTO_INCREMENT,
     mangue_id INT NOT NULL,
     usuario_id INT NOT NULL,
     titulo VARCHAR(200) NOT NULL,
@@ -200,27 +355,23 @@ CREATE TABLE denuncias (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (mangue_id) REFERENCES mangues(id) ON DELETE CASCADE,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
-);
-TABELA 5: resposta_denuncia
-sql
-CREATE TABLE resposta_denuncia (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    denuncia_id INT NOT NULL,
-    usuario_id INT NOT NULL,
-    resposta TEXT NOT NULL,
-    acao_tomada VARCHAR(500),
-    status_update ENUM('em_analise', 'resolvido', 'arquivado'),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    -- Chaves estrangeiras
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE CASCADE,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
     
-    FOREIGN KEY (denuncia_id) REFERENCES denuncias(id) ON DELETE CASCADE,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+    -- Índices
+    INDEX idx_status (status),
+    INDEX idx_tipo_denuncia (tipo_denuncia),
+    INDEX idx_usuario_denuncia (usuario_id, created_at DESC),
+    INDEX idx_mangue_denuncia (mangue_id, created_at DESC),
+    INDEX idx_data_criacao (created_at DESC),
+    INDEX idx_location (latitude, longitude)
 );
-TABELA 6: mensagens
-sql
+
+-- Tabela MENSAGENS
+DROP TABLE IF EXISTS mensagens;
 CREATE TABLE mensagens (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_mensagem INT PRIMARY KEY AUTO_INCREMENT,
     remetente_id INT NOT NULL,
     destinatario_id INT NOT NULL,
     assunto VARCHAR(200),
@@ -229,55 +380,121 @@ CREATE TABLE mensagens (
     lida BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     
-    FOREIGN KEY (remetente_id) REFERENCES usuarios(id) ON DELETE CASCADE,
-    FOREIGN KEY (destinatario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
-    FOREIGN KEY (denuncia_id) REFERENCES denuncias(id) ON DELETE SET NULL
+    -- Chaves estrangeiras
+    FOREIGN KEY (remetente_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (destinatario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (denuncia_id) REFERENCES denuncias(id_denuncia) ON DELETE SET NULL,
+    
+    -- Índices
+    INDEX idx_destinatario (destinatario_id, lida, created_at DESC),
+    INDEX idx_remetente (remetente_id, created_at DESC),
+    INDEX idx_denuncia (denuncia_id),
+    INDEX idx_nao_lidas (destinatario_id, lida)
 );
-DIAGRAMA LÓGICO (MR) - RELACIONAMENTOS:
-text
-┌─────────────────────────────────────────────────────┐
-│                    usuarios                         │
-│  PK: id                                             │
-│      nome, email, senha_hash, tipo_usuario, etc.    │
-└─────────┬───────────────────────────────────────────┘
-          │
-          ├─────────────────┐
-          │                 │
-          ▼                 ▼
-┌─────────────────┐ ┌─────────────────┐
-│  temperaturas   │ │   denuncias     │
-│  PK: id         │ │  PK: id         │
-│  FK: usuario_id │ │  FK: usuario_id │
-│  FK: mangue_id  │ │  FK: mangue_id  │
-└────────┬────────┘ └────────┬────────┘
-         │                   │
-         │                   ├─────────────────┐
-         │                   │                 │
-         ▼                   ▼                 ▼
-┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│    mangues      │ │ resposta_denuncia│ │   mensagens    │
-│   PK: id        │ │    PK: id       │ │   PK: id       │
-│   localizacao   │ │ FK: denuncia_id │ │ FK: remetente_id│
-└─────────────────┘ │ FK: usuario_id  │ │ FK:destinatario_id│
-                    └─────────────────┘ │ FK: denuncia_id │
-                                        └─────────────────┘
-CARDINALIDADES NO MODELO RELACIONAL:
-text
-usuarios (1) ──────┐
-                   ├──▶ temperaturas (N)
-                   │        │
-                   │        └──▶ mangues (1)
-                   │
-                   ├──▶ denuncias (N)
-                   │        │
-                   │        ├──▶ mangues (1)
-                   │        │
-                   │        └──▶ resposta_denuncia (N)
-                   │                 │
-                   │                 └──▶ usuarios (1)
-                   │
-                   └──▶ mensagens (N) como remetente
-                            │
-                            ├──▶ usuarios (1) como destinatario
-                            │
-                            └──▶ denuncias (0 ou 1)
+
+-- Tabela REGISTROS (Histórico)
+DROP TABLE IF EXISTS registros;
+CREATE TABLE registros (
+    id_registro INT PRIMARY KEY AUTO_INCREMENT,
+    usuario_id INT NOT NULL,
+    mangue_id INT NULL,
+    acao VARCHAR(50) NOT NULL,
+    detalhes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Chaves estrangeiras
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (mangue_id) REFERENCES mangues(id_mangues) ON DELETE SET NULL,
+    
+    -- Índices
+    INDEX idx_usuario_acao (usuario_id, acao),
+    INDEX idx_data_acao (created_at, acao),
+    INDEX idx_mangue_acao (mangue_id, acao)
+);
+
+-- Tabela RESPOSTAS_DENUNCIA (Adicional para melhor estrutura)
+DROP TABLE IF EXISTS respostas_denuncia;
+CREATE TABLE respostas_denuncia (
+    id_resposta INT PRIMARY KEY AUTO_INCREMENT,
+    denuncia_id INT NOT NULL,
+    usuario_id INT NOT NULL,
+    resposta TEXT NOT NULL,
+    acao_tomada VARCHAR(500),
+    status_update ENUM('em_analise', 'resolvido', 'arquivado'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Chaves estrangeiras
+    FOREIGN KEY (denuncia_id) REFERENCES denuncias(id_denuncia) ON DELETE CASCADE,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario) ON DELETE CASCADE,
+    
+    -- Índices
+    INDEX idx_denuncia_resposta (denuncia_id, created_at),
+    INDEX idx_usuario_resposta (usuario_id)
+);
+
+-- Reativar verificações
+SET FOREIGN_KEY_CHECKS = 1;
+
+-- ============================================
+-- INSERIR DADOS DE EXEMPLO
+-- ============================================
+
+-- Usuários exemplo
+INSERT INTO usuarios (Nome, Email, Senha_usuario, tipo_usuario, Telefone) VALUES
+('João Silva', 'joao.pescador@email.com', '$2y$10$hashedpassword1', 'pescador', '(11) 99999-9999'),
+('ONG Mangue Vivo', 'contato@manguevivo.org', '$2y$10$hashedpassword2', 'ong', '(11) 88888-8888'),
+('Maria Santos', 'maria.comunidade@email.com', '$2y$10$hashedpassword3', 'comum', '(11) 77777-7777');
+
+-- Manguezais exemplo
+INSERT INTO mangues (Nome_Mangues, Localizacao, Estado, Cidade, Descricao) VALUES
+('Manguezal de Santos', POINT(-23.9675, -46.3328), 'SP', 'Santos', 'Área de preservação ambiental com rica biodiversidade'),
+('Mangue da Baía de Guanabara', POINT(-22.8125, -43.1544), 'RJ', 'Rio de Janeiro', 'Manguezal urbano em processo de recuperação');
+
+-- Temperaturas exemplo
+INSERT INTO temperaturas (usuario_id, mangue_id, temperatura_registro, data_registro, notas) VALUES
+(1, 1, 28.5, '2024-01-15 10:30:00', 'Temperatura normal para o período'),
+(1, 1, 30.2, '2024-01-20 14:00:00', 'Aumento preocupante na temperatura');
+
+-- Denúncias exemplo
+INSERT INTO denuncias (mangue_id, usuario_id, titulo, descricao, tipo_denuncia, status, latitude, longitude) VALUES
+(1, 1, 'Vazamento de óleo', 'Encontrei manchas de óleo no rio principal do manguezal', 'poluicao', 'pendente', -23.9675, -46.3328),
+(2, 3, 'Desmatamento ilegal', 'Árvores sendo cortadas durante a noite', 'desmatamento', 'em_analise', -22.8125, -43.1544);
+
+-- Mensagens exemplo
+INSERT INTO mensagens (remetente_id, destinatario_id, assunto, conteudo, denuncia_id) VALUES
+(2, 1, 'Sobre sua denúncia', 'Olá João, estamos analisando sua denúncia sobre o vazamento de óleo.', 1),
+(1, 2, 'Mais informações', 'Encontrei mais evidências do vazamento, posso enviar fotos?', 1);
+
+-- Registros exemplo
+INSERT INTO registros (usuario_id, mangue_id, acao, detalhes) VALUES
+(1, 1, 'REGISTRO_TEMPERATURA', 'Registrou temperatura de 28.5°C no Manguezal de Santos'),
+(1, 1, 'CRIACAO_DENUNCIA', 'Criou denúncia sobre vazamento de óleo');
+
+-- ============================================
+-- VISUALIZAR OS DADOS
+-- ============================================
+
+SELECT '✅ BANCO DE DADOS CRIADO COM SUCESSO!' AS Mensagem;
+
+-- Mostrar todas as tabelas
+SHOW TABLES;
+
+-- Contar registros em cada tabela
+SELECT 'usuarios' AS Tabela, COUNT(*) AS Quantidade FROM usuarios
+UNION ALL
+SELECT 'mangues', COUNT(*) FROM mangues
+UNION ALL
+SELECT 'temperaturas', COUNT(*) FROM temperaturas
+UNION ALL
+SELECT 'denuncias', COUNT(*) FROM denuncias
+UNION ALL
+SELECT 'mensagens', COUNT(*) FROM mensagens
+UNION ALL
+SELECT 'registros', COUNT(*) FROM registros
+UNION ALL
+SELECT 'respostas_denuncia', COUNT(*) FROM respostas_denuncia;
+
+   
+  
+  
+
