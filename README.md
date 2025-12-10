@@ -43,10 +43,6 @@ Tipos de denúncia:
 
 Poluição (resíduos químicos, lixo)
 
-Desmatamento ilegal
-
-Pesca predatória/ilegal
-
 Outros problemas ambientais
 
 Anexos: Fotos georreferenciadas
