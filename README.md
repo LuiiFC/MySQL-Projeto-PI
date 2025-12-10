@@ -17,12 +17,12 @@ Como Contribuir
 
 🎯 MINIMUNDO DO PROJETO
 Contexto e Problema
-Os manguezais são ecossistemas costeiros vitais que enfrentam graves ameaças como poluição, desmatamento ilegal e pesca predatória. A falta de um sistema centralizado para monitoramento e denúncia dificulta a proteção eficaz dessas áreas.
+Os manguezais são ecossistemas costeiros vitais que enfrentam graves ameaças como poluição. A falta de um sistema centralizado para monitoramento e denúncia dificulta a proteção eficaz dessas áreas.
 
 Solução Proposta
 Uma plataforma digital colaborativa que permite o registro de condições ambientais, denúncia de irregularidades e comunicação entre diferentes atores envolvidos na preservação dos manguezais.
 
-Atores/Usuários do Sistema
+Usuários do Sistema
 Tipo de Usuário	Função	Permissões
 Pescadores	Trabalham nos manguezais	Registrar temperaturas, fazer denúncias, receber alertas
 Comunidade Local	Moradores das áreas próximas	Denunciar irregularidades, acompanhar status
