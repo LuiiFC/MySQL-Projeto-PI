@@ -39,6 +39,7 @@ Histórico temporal por manguezal
 Alertas de mudanças bruscas
 
 2. ⚠️ Sistema de Denúncias
+   
 Tipos de denúncia:
 
 Poluição (resíduos químicos, lixo)
