@@ -1,5 +1,7 @@
 🌿 Plataforma de Monitoramento e Denúncia de Manguezais
-    Equipe: Luis Felipe, Pedro Ruan, Pedro Henrique e Davyson da Silva
+
+Equipe: Luis Felipe, Pedro Ruan, Pedro Henrique e Davyson da Silva
+    
 📋 ÍNDICE
 Minimundo do Projeto
 
